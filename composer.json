@@ -1,0 +1,29 @@
+{
+  "name": "everon/utils",
+  "description": "Utils",
+  "type": "library",
+  "license": "MIT",
+  "version": "0.5",
+  "authors": [{
+    "name": "Oliwier Ptak",
+    "email": "EveronFramework@gmail.com"
+  }],
+  "minimum-stability": "dev",
+  "autoload": {
+    "psr-4": {
+      "Everon\\Component\\Utils\\": "src/",
+      "Everon\\Component\\Utils\\": "src/Helper/",
+      "Everon\\Component\\Utils\\Tests\\Unit\\": "tests/unit/"
+    },
+    "exclude-from-classmap": [
+      "/tests/"
+    ]
+  },
+  "require": {
+    "php": ">=7.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "*",
+    "mockery/mockery": "dev-master"
+  }
+}
