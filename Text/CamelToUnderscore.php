@@ -1,0 +1,27 @@
+<?php
+/**
+ * This file is part of the Everon framework.
+ *
+ * (c) Oliwier Ptak <oliwierptak@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+namespace Everon\Component\Utils\Collection;
+
+trait CamelToUnderscore
+{
+    /**
+     * @param $string
+     * @return string
+     */
+    protected function textCamelToUnderscore($string)
+    {
+        $camelized_string_tokens = preg_split('/(?<=[^A-Z])(?=[A-Z])/', $string);
+        if (count($camelized_string_tokens) > 1) {
+            return implode('_', $camelized_string_tokens);
+        }
+
+        return $string;
+    }
+}
