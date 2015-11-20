@@ -20,7 +20,7 @@ abstract class AbstractException extends \Exception
      * @param null $Previous
      * @param null $Callback
      */
-    public function __construct($params=null, $message, $Previous=null, $Callback=null)
+    public function __construct($params=null, $message=null, $Previous=null, $Callback=null)
     {
         if ($message instanceof \Exception) {
             $message = $message->getMessage();

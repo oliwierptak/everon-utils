@@ -12,7 +12,6 @@
   "autoload": {
     "psr-4": {
       "Everon\\Component\\Utils\\": "src/",
-      "Everon\\Component\\Utils\\Collection\\": "src/Collection/",
       "Everon\\Component\\Utils\\Tests\\Unit\\": "tests/unit/"
     },
     "exclude-from-classmap": [

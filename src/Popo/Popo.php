@@ -9,7 +9,7 @@
  */
 namespace Everon\Component\Utils\Popo;
 
-use Everon\Component\Utils\Collection\CamelToUnderscore;
+use Everon\Component\Utils\Text\CamelToUnderscore;
 use Everon\Component\Utils\Collection\ToArray;
 use Everon\Component\Utils\Popo\Exception\InvalidMethodCallException;
 
