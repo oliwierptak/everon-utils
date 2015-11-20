@@ -114,7 +114,7 @@ class Popo implements PopoInterface
             array_shift($camelized);
             $property = mb_strtolower(implode('_', $camelized));
             */
-            $property = $this->textCamelToUnderscore($name);
+            $property = $this->textCamelToUnderscoreStripFirstToken($name);
         }
 
         $this->call_property = $property;
