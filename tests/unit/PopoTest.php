@@ -9,8 +9,7 @@
  */
 namespace Everon\Component\Utils\Popo\Tests\Unit;
 
-use Everon\Component\Utils\Popo\Popo;
-use Everon\Component\Utils\Popo\PopoInterface;
+use Everon\Component\Utils\Popo\Tests\Unit\Doubles\PopoStub;
 
 class PopoTest extends \PHPUnit_Framework_TestCase
 {
@@ -24,13 +23,13 @@ class PopoTest extends \PHPUnit_Framework_TestCase
     ];
 
     /**
-     * @var PopoInterface
+     * @var PopoStub
      */
     protected $Popo;
 
     protected function setUp()
     {
-        $this->Popo = new Popo($this->arrayFixture);
+        $this->Popo = new PopoStub($this->arrayFixture);
     }
 
     public function test_get_data_value()

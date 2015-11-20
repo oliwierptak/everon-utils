@@ -109,11 +109,6 @@ class Popo implements PopoInterface
             $property = $this->property_name_cache[$name];
         }
         else {
-            /*
-            $camelized = preg_split('/(?<=\\w)(?=[A-Z])/', $name);
-            array_shift($camelized);
-            $property = mb_strtolower(implode('_', $camelized));
-            */
             $property = $this->textCamelToUnderscoreStripFirstToken($name);
         }
 
