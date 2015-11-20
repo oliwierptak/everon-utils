@@ -7,9 +7,9 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Everon\Component\Utils\Popo\Tests\Unit;
+namespace Everon\Component\Utils\Tests\Unit;
 
-use Everon\Component\Utils\Popo\Tests\Unit\Doubles\PopoStub;
+use Everon\Component\Utils\Tests\Unit\Doubles\PopoStub;
 
 class PopoTest extends \PHPUnit_Framework_TestCase
 {
@@ -19,7 +19,7 @@ class PopoTest extends \PHPUnit_Framework_TestCase
     protected $arrayFixture = [
         'foo' => 1,
         'bar' => 'barValue',
-        'fuzz' => null,
+        'fuzz_bar_foo' => null,
     ];
 
     /**
@@ -35,6 +35,8 @@ class PopoTest extends \PHPUnit_Framework_TestCase
     public function test_get_data_value()
     {
         $this->assertEquals(1, $this->Popo->getFoo());
+        $this->assertEquals('barValue', $this->Popo->getBar());
+        $this->assertEquals(null, $this->Popo->getFuzzBarFoo());
     }
 
 }
