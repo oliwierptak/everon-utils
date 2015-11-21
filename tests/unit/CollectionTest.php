@@ -32,7 +32,7 @@ class CollectionTest extends \PHPUnit_Framework_TestCase
         $this->CollectionStub = new CollectionStub($this->arrayFixture);
     }
 
-    public function test_to_array()
+    public function test_to_array_using_data_property()
     {
         $expected = [
             'foo' => 1,
@@ -41,6 +41,17 @@ class CollectionTest extends \PHPUnit_Framework_TestCase
         ];
 
         $this->assertEquals($expected, $this->CollectionStub->toArray(true));
+    }
+
+    public function test_to_array_using_getArrayableData_method()
+    {
+        $data = [
+            'arrayable_data' => 'foobar'
+        ];
+
+        $this->CollectionStub->setArrayableData($data);
+
+        $this->assertEquals($data, $this->CollectionStub->toArray(true));
     }
 
 }

@@ -22,8 +22,35 @@ class CollectionStub implements ArrayableInterface
      */
     protected $data;
 
+    /**
+     * @var array
+     */
+    protected $arrayable_data;
+
+    /**
+     * @param array $data
+     */
     public function __construct(array $data)
     {
         $this->data = $data;
+        $this->arrayable_data = $data;
+    }
+
+    /**
+     * @return array
+     */
+    protected function getArrayableData()
+    {
+        return $this->arrayable_data;
+    }
+
+    /**
+     * @param array $data
+     *
+     * @return void
+     */
+    public function setArrayableData(array $data)
+    {
+        $this->arrayable_data = $data;
     }
 }

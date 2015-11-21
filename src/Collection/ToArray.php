@@ -9,11 +9,6 @@
  */
 namespace Everon\Component\Utils\Collection;
 
-/**
- * @property array $data
- *
- * @method array getArrayableData($deep)
- */
 trait ToArray
 {
     use IsIterable;
