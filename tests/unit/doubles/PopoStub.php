@@ -13,6 +13,7 @@ use Everon\Component\Utils\Popo\Popo;
 
 /**
  * @method int getFoo
+ * @method int setFoo($foo)
  * @method string getBar
  * @method string getFuzzBarFoo
  */

@@ -9,6 +9,7 @@
  */
 namespace Everon\Component\Utils\Popo;
 
+use Everon\Component\Utils\Popo\Exception\InvalidPropertyRequestedException;
 use Everon\Component\Utils\Text\CamelToUnderscore;
 use Everon\Component\Utils\Collection\ToArray;
 use Everon\Component\Utils\Popo\Exception\InvalidMethodCallException;
@@ -102,7 +103,9 @@ class Popo implements PopoInterface
         }
 
         if ($setter === false && $getter === false) {
-            throw new InvalidMethodCallException([$name, get_called_class()]);
+            throw new InvalidMethodCallException([
+                $name.'()', get_called_class()
+            ]);
         }
 
         if (array_key_exists($name, $this->property_name_cache)) {
@@ -115,9 +118,9 @@ class Popo implements PopoInterface
         $this->call_property = $property;
 
         if (array_key_exists($property, $this->data) === false) {
-            if ($getter) {
-                throw new InvalidMethodCallException([$property, get_called_class()]);
-            }
+            throw new InvalidPropertyRequestedException([
+                $property, $name.'()', get_called_class()
+            ]);
         }
 
         if ($getter) {
