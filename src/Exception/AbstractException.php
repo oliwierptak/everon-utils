@@ -13,26 +13,25 @@ namespace Everon\Component\Utils\Exception;
 abstract class AbstractException extends \Exception
 {
     protected $toString = null;
-    
-    /**
-     * @param null $params
-     * @param string $message
-     * @param null $Previous
-     * @param null $Callback
-     */
-    public function __construct($params=null, $message=null, $Previous=null, $Callback=null)
-    {
-        if ($message instanceof \Exception) {
-            $message = $message->getMessage();
-        }
-        
-        $message = $this->formatExceptionParams($message, $params);
 
-        if ($Callback instanceof \Closure) {
-            $Callback();
+    /**
+     * @param null $parameters
+     * @param null $message
+     * @param null $Previous
+     * @param int $code
+     */
+    public function __construct($parameters=null, $message=null, $Previous=null, $code=0)
+    {
+        if ($parameters instanceof \Exception) {
+            $message = $parameters->getMessage();
+        }
+        else if ($message === null) {
+            $message = $this->message;
         }
         
-        parent::__construct($message, 0, $Previous);
+        $message = $this->formatExceptionParams($message, $parameters);
+
+        parent::__construct($message, $code, $Previous);
     }
 
     /**
