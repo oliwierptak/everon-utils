@@ -9,7 +9,6 @@
  */
 namespace Everon\Component\Utils\Tests\Unit\Doubles;
 
-
 use Everon\Component\Utils\Text\UnderscoreToCamel;
 use Everon\Component\Utils\Text\CamelToUnderscore;
 
