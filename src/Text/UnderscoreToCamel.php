@@ -7,7 +7,7 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Everon\Component\Utils\Collection;
+namespace Everon\Component\Utils\Text;
 
 trait UnderscoreToCamel
 {

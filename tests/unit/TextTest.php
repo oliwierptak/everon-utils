@@ -9,12 +9,30 @@
  */
 namespace Everon\Component\Utils\Tests\Unit;
 
+use Everon\Component\Utils\Tests\Unit\Doubles\TextStub;
+
 class TextTest extends \PHPUnit_Framework_TestCase
 {
+    /**
+     * @var TextStub
+     */
+    protected $TextStub;
+
+    protected function setUp()
+    {
+        $this->TextStub = new TextStub();
+    }
 
     public function test_camel_to_underscore()
     {
+        $this->assertEquals('foo_bar', $this->TextStub->camelToUnderscore('fooBar'));
+        $this->assertEquals('foo_bar', $this->TextStub->camelToUnderscore('FooBar'));
+    }
 
+    public function test_underscore_to_camel()
+    {
+        $this->assertEquals('FooBar', $this->TextStub->underscoreToCamel('foo_bar'));
+        $this->assertEquals('FooBar', $this->TextStub->underscoreToCamel('foo_bar'));
     }
 
 }
