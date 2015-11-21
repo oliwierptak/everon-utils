@@ -32,11 +32,17 @@ class PopoTest extends \PHPUnit_Framework_TestCase
         $this->Popo = new PopoStub($this->arrayFixture);
     }
 
-    public function test_get_data_value()
+    public function test_get_value()
     {
         $this->assertEquals(1, $this->Popo->getFoo());
         $this->assertEquals('barValue', $this->Popo->getBar());
         $this->assertEquals(null, $this->Popo->getFuzzBarFoo());
+    }
+
+    public function test_set_value()
+    {
+        $this->Popo->setFoo(100);
+        $this->assertEquals(100, $this->Popo->getFoo());
     }
 
     /**
@@ -45,15 +51,9 @@ class PopoTest extends \PHPUnit_Framework_TestCase
      *
      * @return void
      */
-    public function test_get_undefined_data_value_should_throw_exception()
+    public function test_get_undefined_value_should_throw_exception()
     {
         $this->assertEquals('foobar', $this->Popo->getUndefined());
-    }
-
-    public function test_set_data_value()
-    {
-        $this->Popo->setFoo(100);
-        $this->assertEquals(100, $this->Popo->getFoo());
     }
 
     /**
@@ -62,7 +62,7 @@ class PopoTest extends \PHPUnit_Framework_TestCase
      *
      * @return void
      */
-    public function test_set_undefined_data_value_should_throw_exception()
+    public function test_set_undefined_value_should_throw_exception()
     {
         $this->Popo->setUndefined(100);
     }
@@ -73,7 +73,7 @@ class PopoTest extends \PHPUnit_Framework_TestCase
      *
      * @return void
      */
-    public function test_set_undefined_method_should_throw_exception()
+    public function test_call_to_non_setter_or_getter_method_should_throw_exception()
     {
         $this->Popo->someUndefinedMethod();
     }
