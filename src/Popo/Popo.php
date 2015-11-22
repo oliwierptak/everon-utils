@@ -91,20 +91,20 @@ class Popo implements PopoInterface
     {
         $this->call_type = null;
         $this->call_property = null;
-        
+
         $getter = strpos($name, 'get') === 0;
         $setter = strpos($name, 'set') === 0;
 
         if ($getter) {
             $this->call_type = static::CALL_TYPE_GETTER;
-        } 
+        }
         else if ($setter) {
             $this->call_type = static::CALL_TYPE_SETTER;
         }
 
         if ($setter === false && $getter === false) {
             throw new InvalidMethodCallException([
-                $name.'()', get_called_class()
+                $name . '()', get_called_class(),
             ]);
         }
 
@@ -119,7 +119,7 @@ class Popo implements PopoInterface
 
         if (array_key_exists($property, $this->data) === false) {
             throw new InvalidPropertyRequestedException([
-                $property, $name.'()', get_called_class()
+                $property, $name . '()', get_called_class(),
             ]);
         }
 
@@ -129,7 +129,7 @@ class Popo implements PopoInterface
         else if ($setter) {
             $this->data[$property] = $arguments[0];
         }
-        
+
         return null;
     }
 

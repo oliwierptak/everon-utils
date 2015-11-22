@@ -22,7 +22,7 @@ trait EndsWith
         if ($ends_with === '') {
             return false;
         }
-        
+
         return substr_compare($string, $ends_with, -strlen($ends_with), strlen($ends_with)) === 0;
     }
 }

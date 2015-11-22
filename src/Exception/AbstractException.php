@@ -20,7 +20,7 @@ abstract class AbstractException extends \Exception
      * @param null $Previous
      * @param int $code
      */
-    public function __construct($parameters=null, $message=null, $Previous=null, $code=0)
+    public function __construct($parameters = null, $message = null, $Previous = null, $code = 0)
     {
         if ($parameters instanceof \Exception) {
             $message = $parameters->getMessage();
@@ -28,7 +28,7 @@ abstract class AbstractException extends \Exception
         else if ($message === null) {
             $message = $this->message;
         }
-        
+
         $message = $this->formatExceptionParams($message, $parameters);
 
         parent::__construct($message, $code, $Previous);
@@ -46,7 +46,7 @@ abstract class AbstractException extends \Exception
         }
 
         if (is_array($parameters) === false) {
-            $parameters = array($parameters);
+            $parameters = [$parameters];
         }
 
         return @vsprintf($message, $parameters);
@@ -62,12 +62,12 @@ abstract class AbstractException extends \Exception
         $exception_message = $Exception->getMessage();
         $class = get_class($Exception);
         if ($class != '') {
-            $message = $message.'{'.$class.'}';
+            $message = $message . '{' . $class . '}';
         }
         if ($message != '' && $exception_message != '') {
-            $message = $message.' ';
+            $message = $message . ' ';
         }
-        $message = $message.$exception_message;
+        $message = $message . $exception_message;
 
         return $message;
     }

@@ -18,11 +18,12 @@ trait ToArray
      *
      * @return array
      */
-    public function toArray($deep=false)
+    public function toArray($deep = false)
     {
         if (method_exists($this, 'getArrayableData')) {
             $data = $this->getArrayableData($deep);
-        } else {
+        }
+        else {
             $data = (property_exists($this, 'data')) ? $this->data : null;
         }
 

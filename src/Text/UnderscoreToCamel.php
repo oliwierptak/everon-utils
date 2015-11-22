@@ -19,7 +19,7 @@ trait UnderscoreToCamel
     {
         $camelized_string = '';
         $string_tokens = explode('_', strtolower($string));
-        for ($a=0; $a<count($string_tokens); ++$a) {
+        for ($a = 0; $a < count($string_tokens); ++$a) {
             $camelized_string .= ucfirst($string_tokens[$a]);
         }
 

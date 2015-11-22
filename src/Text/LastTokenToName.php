@@ -17,7 +17,7 @@ trait LastTokenToName
      *
      * @return mixed
      */
-    protected function textLastTokenToName($name, $split='\\')
+    protected function textLastTokenToName($name, $split = '\\')
     {
         $tokens = explode($split, $name);
         return array_pop($tokens);
