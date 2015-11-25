@@ -9,10 +9,11 @@
  */
 namespace Everon\Component\Utils\Tests\Unit;
 
+use Everon\Component\Utils\TestCase\MockeryTest;
 use Everon\Component\Utils\Tests\Unit\Doubles\ExceptionMultipleParamsStub;
 use Everon\Component\Utils\Tests\Unit\Doubles\ExceptionSingleParamStub;
 
-class ExceptionTest extends \PHPUnit_Framework_TestCase
+class ExceptionTest extends MockeryTest
 {
     /**
      * @expectedException \Everon\Component\Utils\Tests\Unit\Doubles\ExceptionSingleParamStub

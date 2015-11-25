@@ -9,9 +9,10 @@
  */
 namespace Everon\Component\Utils\Tests\Unit;
 
+use Everon\Component\Utils\TestCase\MockeryTest;
 use Everon\Component\Utils\Tests\Unit\Doubles\PopoStub;
 
-class PopoTest extends \PHPUnit_Framework_TestCase
+class PopoTest extends MockeryTest
 {
     /**
      * @var array

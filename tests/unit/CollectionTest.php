@@ -9,9 +9,10 @@
  */
 namespace Everon\Component\Utils\Tests\Unit;
 
+use Everon\Component\Utils\TestCase\MockeryTest;
 use Everon\Component\Utils\Tests\Unit\Doubles\CollectionStub;
 
-class CollectionTest extends \PHPUnit_Framework_TestCase
+class CollectionTest extends MockeryTest
 {
     /**
      * @var CollectionStub

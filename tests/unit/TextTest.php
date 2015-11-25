@@ -9,9 +9,10 @@
  */
 namespace Everon\Component\Utils\Tests\Unit;
 
+use Everon\Component\Utils\TestCase\MockeryTest;
 use Everon\Component\Utils\Tests\Unit\Doubles\TextStub;
 
-class TextTest extends \PHPUnit_Framework_TestCase
+class TextTest extends MockeryTest
 {
     /**
      * @var TextStub
