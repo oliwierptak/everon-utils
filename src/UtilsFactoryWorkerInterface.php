@@ -12,7 +12,7 @@ namespace Everon\Component\Utils;
 use Everon\Component\Factory\FactoryWorkerInterface as WorkerInterface;
 use Everon\Component\Utils\Popo\PopoInterface;
 
-interface FactoryWorkerInterface extends WorkerInterface
+interface UtilsFactoryWorkerInterface extends WorkerInterface
 {
     /**
      * @param array $data

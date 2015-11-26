@@ -27,7 +27,7 @@ trait ToArray
             $data = (property_exists($this, 'data')) ? $this->data : null;
         }
 
-        if ($this->isIterable($data) === false) {
+        if ($this->collectionIsIterable($data) === false) {
             return [];
         }
 

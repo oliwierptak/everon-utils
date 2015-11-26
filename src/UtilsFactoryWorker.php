@@ -12,7 +12,7 @@ namespace Everon\Component\Utils;
 use Everon\Component\Factory\AbstractWorker;
 use Everon\Component\Utils\Popo\Popo;
 
-class FactoryWorker extends AbstractWorker implements FactoryWorkerInterface
+class UtilsFactoryWorker extends AbstractWorker implements UtilsFactoryWorkerInterface
 {
     /**
      * @inheritdoc
