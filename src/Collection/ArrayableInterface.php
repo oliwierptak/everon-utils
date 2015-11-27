@@ -11,10 +11,12 @@ namespace Everon\Component\Utils\Collection;
 
 interface ArrayableInterface
 {
+
     /**
      * @param bool $deep
      *
      * @return array
      */
     public function toArray($deep = false);
+
 }

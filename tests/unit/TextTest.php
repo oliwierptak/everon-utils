@@ -14,6 +14,7 @@ use Everon\Component\Utils\Tests\Unit\Doubles\TextStub;
 
 class TextTest extends MockeryTest
 {
+
     /**
      * @var TextStub
      */

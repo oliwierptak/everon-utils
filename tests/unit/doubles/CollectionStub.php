@@ -9,12 +9,12 @@
  */
 namespace Everon\Component\Utils\Tests\Unit\Doubles;
 
-
 use Everon\Component\Utils\Collection\ArrayableInterface;
 use Everon\Component\Utils\Collection\ToArray;
 
 class CollectionStub implements ArrayableInterface
 {
+
     use ToArray;
 
     /**
@@ -53,4 +53,5 @@ class CollectionStub implements ArrayableInterface
     {
         $this->arrayable_data = $data;
     }
+
 }

@@ -15,11 +15,13 @@ use Everon\Component\Utils\Tests\Unit\Doubles\ExceptionSingleParamStub;
 
 class ExceptionTest extends MockeryTest
 {
+
     /**
      * @expectedException \Everon\Component\Utils\Tests\Unit\Doubles\ExceptionSingleParamStub
      * @expectedExceptionMessage Lorem ipsum: "%s"
      *
      * @throws ExceptionSingleParamStub
+     *
      * @return void
      */
     public function test_exception_message()
@@ -32,6 +34,7 @@ class ExceptionTest extends MockeryTest
      * @expectedExceptionMessage Lorem ipsum: "foobar"
      *
      * @throws ExceptionSingleParamStub
+     *
      * @return void
      */
     public function test_exception_message_with_param()
@@ -44,6 +47,7 @@ class ExceptionTest extends MockeryTest
      * @expectedExceptionMessage Multiple Lorem ipsum: "foobar" in "fuzz" for "123"
      *
      * @throws ExceptionMultipleParamsStub
+     *
      * @return void
      */
     public function test_exception_message_with_multiple_params()
@@ -56,6 +60,7 @@ class ExceptionTest extends MockeryTest
      * @expectedExceptionMessage Lorem ipsum: "foobar"
      *
      * @throws ExceptionMultipleParamsStub
+     *
      * @return void
      */
     public function test_exception_message_with_exception_should_overwrite_message()
@@ -63,4 +68,5 @@ class ExceptionTest extends MockeryTest
         $AnotherException = new ExceptionSingleParamStub('foobar');
         throw new ExceptionMultipleParamsStub($AnotherException);
     }
+
 }

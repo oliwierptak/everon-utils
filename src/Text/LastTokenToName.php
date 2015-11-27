@@ -11,6 +11,7 @@ namespace Everon\Component\Utils\Text;
 
 trait LastTokenToName
 {
+
     /**
      * @param $name
      * @param string $split
@@ -20,6 +21,8 @@ trait LastTokenToName
     protected function textLastTokenToName($name, $split = '\\')
     {
         $tokens = explode($split, $name);
+
         return array_pop($tokens);
     }
+
 }

@@ -14,6 +14,7 @@ use Everon\Component\Utils\Tests\Unit\Doubles\CollectionStub;
 
 class CollectionTest extends MockeryTest
 {
+
     /**
      * @var CollectionStub
      */
@@ -25,7 +26,7 @@ class CollectionTest extends MockeryTest
     protected $arrayFixture = [
         'foo' => 1,
         'bar' => 'barValue',
-        'fuzz' => null
+        'fuzz' => null,
     ];
 
     protected function setUp()
@@ -38,7 +39,7 @@ class CollectionTest extends MockeryTest
         $expected = [
             'foo' => 1,
             'bar' => 'barValue',
-            'fuzz' => null
+            'fuzz' => null,
         ];
 
         $this->assertEquals($expected, $this->CollectionStub->toArray(true));
@@ -47,7 +48,7 @@ class CollectionTest extends MockeryTest
     public function test_to_array_using_getArrayableData_method()
     {
         $data = [
-            'arrayable_data' => 'foobar'
+            'arrayable_data' => 'foobar',
         ];
 
         $this->CollectionStub->setArrayableData($data);

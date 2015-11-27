@@ -11,8 +11,10 @@ namespace Everon\Component\Utils\Text;
 
 trait CamelToUnderscore
 {
+
     /**
      * @param $string
+     *
      * @return string
      */
     protected function textCamelToUnderscore($string)
@@ -27,6 +29,7 @@ trait CamelToUnderscore
 
     /**
      * @param $string
+     *
      * @return string
      */
     protected function textCamelToUnderscoreStripFirstToken($string)
@@ -39,4 +42,5 @@ trait CamelToUnderscore
 
         return $string;
     }
+
 }

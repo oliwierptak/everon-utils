@@ -13,5 +13,7 @@ use Everon\Component\Utils\Exception\AbstractException;
 
 class ExceptionMultipleParamsStub extends AbstractException
 {
+
     protected $message = 'Multiple Lorem ipsum: "%s" in "%s" for "%d"';
+
 }

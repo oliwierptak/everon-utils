@@ -11,6 +11,7 @@ namespace Everon\Component\Utils\Collection;
 
 trait ToArray
 {
+
     use IsIterable;
 
     /**
@@ -22,8 +23,7 @@ trait ToArray
     {
         if (method_exists($this, 'getArrayableData')) {
             $data = $this->getArrayableData($deep);
-        }
-        else {
+        } else {
             $data = (property_exists($this, 'data')) ? $this->data : null;
         }
 
@@ -42,4 +42,5 @@ trait ToArray
 
         return $data;
     }
+
 }

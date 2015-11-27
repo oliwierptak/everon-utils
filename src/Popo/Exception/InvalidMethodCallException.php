@@ -13,5 +13,7 @@ use Everon\Component\Utils\Exception\AbstractException;
 
 class InvalidMethodCallException extends AbstractException
 {
+
     protected $message = 'Invalid method call: "%s" in "%s"';
+
 };

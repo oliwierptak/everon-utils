@@ -11,8 +11,10 @@ namespace Everon\Component\Utils\Text;
 
 trait UnderscoreToCamel
 {
+
     /**
      * @param $string
+     *
      * @return string
      */
     protected function textUnderscoreToCamel($string)
@@ -25,4 +27,5 @@ trait UnderscoreToCamel
 
         return $camelized_string;
     }
+
 }

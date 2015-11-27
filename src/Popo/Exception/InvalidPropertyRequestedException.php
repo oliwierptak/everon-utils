@@ -13,5 +13,7 @@ use Everon\Component\Utils\Exception\AbstractException;
 
 class InvalidPropertyRequestedException extends AbstractException
 {
+
     protected $message = 'Invalid property requested: "%s" with "%s" in "%s"';
+
 };

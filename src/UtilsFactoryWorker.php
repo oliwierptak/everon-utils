@@ -14,13 +14,14 @@ use Everon\Component\Utils\Popo\Popo;
 
 class UtilsFactoryWorker extends AbstractWorker implements UtilsFactoryWorkerInterface
 {
+
     /**
      * @inheritdoc
      */
     protected function registerBeforeWork()
     {
         $Factory = $this->getFactory();
-        $this->getFactory()->getDependencyContainer()->register('UtilsFactoryWorker', function() use ($Factory) {
+        $this->getFactory()->getDependencyContainer()->register('UtilsFactoryWorker', function () use ($Factory) {
             return $Factory->getWorkerByName('Utils', 'Everon\Component\Utils');
         });
     }
@@ -56,4 +57,5 @@ class UtilsFactoryWorker extends AbstractWorker implements UtilsFactoryWorkerInt
     {
         return new \IntlDateFormatter($locale, $datetype, $timetype, $timezone, $calendar, $pattern);
     }
+
 }

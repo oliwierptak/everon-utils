@@ -19,5 +19,4 @@ use Everon\Component\Utils\Popo\Popo;
  */
 class PopoStub extends Popo
 {
-
 }

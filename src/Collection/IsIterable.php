@@ -11,6 +11,7 @@ namespace Everon\Component\Utils\Collection;
 
 trait IsIterable
 {
+
     /**
      * @param $input
      *
@@ -28,4 +29,5 @@ trait IsIterable
 
         return false;
     }
+
 }

@@ -14,6 +14,7 @@ use Everon\Component\Utils\Popo\PopoInterface;
 
 interface UtilsFactoryWorkerInterface extends WorkerInterface
 {
+
     /**
      * @param array $data
      *
@@ -47,4 +48,5 @@ interface UtilsFactoryWorkerInterface extends WorkerInterface
      * @return \IntlDateFormatter
      */
     public function buildIntlDateFormatter($locale, $datetype, $timetype, $timezone, $calendar, $pattern);
+
 }

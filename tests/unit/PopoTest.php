@@ -14,6 +14,7 @@ use Everon\Component\Utils\Tests\Unit\Doubles\PopoStub;
 
 class PopoTest extends MockeryTest
 {
+
     /**
      * @var array
      */
@@ -78,4 +79,5 @@ class PopoTest extends MockeryTest
     {
         $this->Popo->someUndefinedMethod();
     }
+
 }

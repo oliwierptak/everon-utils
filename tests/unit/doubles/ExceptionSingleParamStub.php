@@ -13,5 +13,7 @@ use Everon\Component\Utils\Exception\AbstractException;
 
 class ExceptionSingleParamStub extends AbstractException
 {
+
     protected $message = 'Lorem ipsum: "%s"';
+
 }

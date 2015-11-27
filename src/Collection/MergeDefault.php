@@ -11,9 +11,11 @@ namespace Everon\Component\Utils\Collection;
 
 trait MergeDefault
 {
+
     /**
      * @param array $default
      * @param array $data
+     *
      * @return array
      */
     protected function collectionMergeDefault(array $default, array $data)
@@ -22,13 +24,14 @@ trait MergeDefault
             if (is_array($value)) {
                 $value_data = isset($data[$name]) ? $data[$name] : [];
                 $data[$name] = $this->collectionMergeDefault($default[$name], (array) $value_data);
-            }
-            else {
+            } else {
                 if (array_key_exists($name, $data) === false) {
                     $data[$name] = $default[$name];
                 }
             }
         }
+
         return $data;
     }
+
 }

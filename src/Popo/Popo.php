@@ -14,7 +14,6 @@ use Everon\Component\Utils\Text\CamelToUnderscore;
 use Everon\Component\Utils\Collection\ToArray;
 use Everon\Component\Utils\Popo\Exception\InvalidMethodCallException;
 
-
 /**
  * Plain Old PHP Object, data accessible only via method calls, eg. $Popo->getTitle(), $Popo->setTitle('title')
  *
@@ -22,6 +21,7 @@ use Everon\Component\Utils\Popo\Exception\InvalidMethodCallException;
  */
 class Popo implements PopoInterface
 {
+
     use CamelToUnderscore;
     use ToArray;
 
@@ -61,6 +61,7 @@ class Popo implements PopoInterface
      * @param $property
      *
      * @throws InvalidMethodCallException
+     *
      * @return void
      */
     public function __get($property)
@@ -73,6 +74,7 @@ class Popo implements PopoInterface
      * @param $value
      *
      * @throws InvalidMethodCallException
+     *
      * @return void
      */
     public function __set($property, $value)
@@ -85,7 +87,8 @@ class Popo implements PopoInterface
      * @param $arguments
      *
      * @throws InvalidMethodCallException
-     * @return null
+     * @throws InvalidPropertyRequestedException
+     * @return null|mixed
      */
     public function __call($name, $arguments)
     {
@@ -97,8 +100,7 @@ class Popo implements PopoInterface
 
         if ($getter) {
             $this->call_type = static::CALL_TYPE_GETTER;
-        }
-        else if ($setter) {
+        } elseif ($setter) {
             $this->call_type = static::CALL_TYPE_SETTER;
         }
 
@@ -110,8 +112,7 @@ class Popo implements PopoInterface
 
         if (array_key_exists($name, $this->property_name_cache)) {
             $property = $this->property_name_cache[$name];
-        }
-        else {
+        } else {
             $property = $this->textCamelToUnderscoreStripFirstToken($name);
         }
 
@@ -125,8 +126,7 @@ class Popo implements PopoInterface
 
         if ($getter) {
             return $this->data[$property];
-        }
-        else if ($setter) {
+        } elseif ($setter) {
             $this->data[$property] = $arguments[0];
         }
 

@@ -14,6 +14,7 @@ use Everon\Component\Utils\Text\CamelToUnderscore;
 
 class TextStub
 {
+
     use CamelToUnderscore;
     use UnderscoreToCamel;
 
@@ -26,4 +27,5 @@ class TextStub
     {
         return $this->textUnderscoreToCamel($text);
     }
+
 }

@@ -9,9 +9,9 @@
  */
 namespace Everon\Component\Utils\Exception;
 
-
 abstract class AbstractException extends \Exception
 {
+
     protected $toString = null;
 
     /**
@@ -24,8 +24,7 @@ abstract class AbstractException extends \Exception
     {
         if ($parameters instanceof \Exception) {
             $message = $parameters->getMessage();
-        }
-        else if ($message === null) {
+        } elseif ($message === null) {
             $message = $this->message;
         }
 
@@ -37,11 +36,12 @@ abstract class AbstractException extends \Exception
     /**
      * @param $message
      * @param $parameters
+     *
      * @return string
      */
     protected function formatExceptionParams($message, $parameters)
     {
-        if (trim($message) === '' || is_null($parameters)) {
+        if (trim($message) === '' || $parameters === null) {
             return $message;
         }
 
@@ -54,17 +54,18 @@ abstract class AbstractException extends \Exception
 
     /**
      * @param \Exception $Exception
+     *
      * @return string
      */
     public static function getErrorMessageFromException(\Exception $Exception)
     {
-        $message = "";
+        $message = '';
         $exception_message = $Exception->getMessage();
         $class = get_class($Exception);
-        if ($class != '') {
+        if ($class !== '') {
             $message = $message . '{' . $class . '}';
         }
-        if ($message != '' && $exception_message != '') {
+        if ($message !== '' && $exception_message !== '') {
             $message = $message . ' ';
         }
         $message = $message . $exception_message;

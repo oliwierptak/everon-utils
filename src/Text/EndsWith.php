@@ -11,9 +11,11 @@ namespace Everon\Component\Utils\Text;
 
 trait EndsWith
 {
+
     /**
      * @param $string
      * @param $ends_with
+     *
      * @return bool
      */
     protected function textEndsWith($string, $ends_with)
@@ -25,4 +27,5 @@ trait EndsWith
 
         return substr_compare($string, $ends_with, -strlen($ends_with), strlen($ends_with)) === 0;
     }
+
 }
