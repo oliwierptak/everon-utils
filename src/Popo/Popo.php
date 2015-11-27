@@ -88,6 +88,7 @@ class Popo implements PopoInterface
      *
      * @throws InvalidMethodCallException
      * @throws InvalidPropertyRequestedException
+     *
      * @return null|mixed
      */
     public function __call($name, $arguments)
