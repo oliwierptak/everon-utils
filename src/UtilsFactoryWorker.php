@@ -17,6 +17,17 @@ class UtilsFactoryWorker extends AbstractWorker implements UtilsFactoryWorkerInt
     /**
      * @inheritdoc
      */
+    protected function registerBeforeWork()
+    {
+        $Factory = $this->getFactory();
+        $this->getFactory()->getDependencyContainer()->register('UtilsFactoryWorker', function() use ($Factory) {
+            return $Factory->getWorkerByName('UtilsFactoryWorker', 'Everon\Component\Utils');
+        });
+    }
+
+    /**
+     * @inheritdoc
+     */
     public function buildPopo(array $data)
     {
         return new Popo($data);
