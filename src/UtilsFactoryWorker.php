@@ -20,9 +20,8 @@ class UtilsFactoryWorker extends AbstractWorker implements UtilsFactoryWorkerInt
      */
     protected function registerBeforeWork()
     {
-        $Factory = $this->getFactory();
-        $this->getFactory()->getDependencyContainer()->register('UtilsFactoryWorker', function () use ($Factory) {
-            return $Factory->getWorkerByName('Utils', 'Everon\Component\Utils');
+        $this->getFactory()->getDependencyContainer()->register('UtilsFactoryWorker', function () {
+            return $this->getFactory()->getWorkerByName('Utils', 'Everon\Component\Utils');
         });
     }
 
