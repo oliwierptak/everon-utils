@@ -1,6 +1,6 @@
 <?php
 /**
- * This file is part of the Everon framework.
+ * This file is part of the Everon components.
  *
  * (c) Oliwier Ptak <oliwierptak@gmail.com>
  *
