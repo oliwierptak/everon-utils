@@ -27,6 +27,9 @@ class CollectionTest extends MockeryTest
         'foo' => 1,
         'bar' => 'barValue',
         'fuzz' => null,
+        'nested_item' => [
+            'foo' => null
+        ]
     ];
 
     protected function setUp()
@@ -40,6 +43,9 @@ class CollectionTest extends MockeryTest
             'foo' => 1,
             'bar' => 'barValue',
             'fuzz' => null,
+            'nested_item' => [
+                'foo' => null
+            ]
         ];
 
         $this->assertEquals($expected, $this->CollectionStub->toArray(true));
@@ -51,9 +57,37 @@ class CollectionTest extends MockeryTest
             'arrayable_data' => 'foobar',
         ];
 
-        $this->CollectionStub->setArrayableData($data);
+        $this->CollectionStub->setData($data);
 
         $this->assertEquals($data, $this->CollectionStub->toArray(true));
+    }
+
+    public function test_is_iterable()
+    {
+        $this->assertTrue($this->CollectionStub->canLoop());
+
+        $this->CollectionStub->setData(new \ArrayObject([]));
+        $this->assertTrue($this->CollectionStub->canLoop());
+
+        $this->CollectionStub->setData(null);
+        $this->assertFalse($this->CollectionStub->canLoop());
+    }
+
+    public function test_merge_default()
+    {
+        $this->CollectionStub->mergeData([
+            'fuzz' => 'NOT NULL',
+            'nested_item' => [
+                'foo' => 'bar'
+            ]
+        ]);
+
+        $data = $this->CollectionStub->getData();
+
+        $this->assertEquals($data['fuzz'], 'NOT NULL');
+        $this->assertEquals($data['nested_item'], [
+            'foo' => 'bar'
+        ]);
     }
 
 }

@@ -9,6 +9,7 @@
  */
 namespace Everon\Component\Utils\Tests\Unit;
 
+use Everon\Component\Utils\Exception\AbstractException;
 use Everon\Component\Utils\TestCase\MockeryTest;
 use Everon\Component\Utils\Tests\Unit\Doubles\ExceptionMultipleParamsStub;
 use Everon\Component\Utils\Tests\Unit\Doubles\ExceptionSingleParamStub;
@@ -67,6 +68,22 @@ class ExceptionTest extends MockeryTest
     {
         $AnotherException = new ExceptionSingleParamStub('foobar');
         throw new ExceptionMultipleParamsStub($AnotherException);
+    }
+
+    public function test_getErrorMessageFromException()
+    {
+        $AnotherException = new ExceptionSingleParamStub('foobar');
+        $message = AbstractException::getErrorMessageFromException($AnotherException);
+
+        $this->assertEquals('{Everon\Component\Utils\Tests\Unit\Doubles\ExceptionSingleParamStub} Lorem ipsum: "foobar"', $message);
+    }
+
+    public function test_get_to_string()
+    {
+        $AnotherException = new ExceptionSingleParamStub('foobar');
+        $message = (string) $AnotherException;
+
+        $this->assertEquals('{Everon\Component\Utils\Tests\Unit\Doubles\ExceptionSingleParamStub} Lorem ipsum: "foobar"', $message);
     }
 
 }

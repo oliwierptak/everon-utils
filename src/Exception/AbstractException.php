@@ -9,8 +9,12 @@
  */
 namespace Everon\Component\Utils\Exception;
 
+use Everon\Component\Utils\Text\ToString;
+
 abstract class AbstractException extends \Exception
 {
+
+    use ToString;
 
     protected $toString = null;
 

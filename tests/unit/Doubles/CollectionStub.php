@@ -10,12 +10,16 @@
 namespace Everon\Component\Utils\Tests\Unit\Doubles;
 
 use Everon\Component\Utils\Collection\ArrayableInterface;
+use Everon\Component\Utils\Collection\IsIterable;
+use Everon\Component\Utils\Collection\MergeDefault;
 use Everon\Component\Utils\Collection\ToArray;
 
 class CollectionStub implements ArrayableInterface
 {
 
     use ToArray;
+    use IsIterable;
+    use MergeDefault;
 
     /**
      * @var array
@@ -45,13 +49,39 @@ class CollectionStub implements ArrayableInterface
     }
 
     /**
-     * @param array $data
+     * @param array|\ArrayObject $data
      *
      * @return void
      */
-    public function setArrayableData(array $data)
+    public function setData($data)
     {
         $this->arrayable_data = $data;
+    }
+
+    /**
+     * @return array
+     */
+    public function getData()
+    {
+        return $this->arrayable_data;
+    }
+
+    /**
+     * @return bool
+     */
+    public function canLoop()
+    {
+        return $this->collectionIsIterable($this->arrayable_data);
+    }
+
+    /**
+     * @param $defaults
+     *
+     * @return void
+     */
+    public function mergeData($defaults)
+    {
+        $this->arrayable_data = $this->collectionMergeDefault($this->arrayable_data, $defaults);
     }
 
 }

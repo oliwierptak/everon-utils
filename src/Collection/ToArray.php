@@ -12,8 +12,6 @@ namespace Everon\Component\Utils\Collection;
 trait ToArray
 {
 
-    use IsIterable;
-
     /**
      * @param bool $deep
      *
