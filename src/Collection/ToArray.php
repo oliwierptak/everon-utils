@@ -21,15 +21,7 @@ trait ToArray
      */
     public function toArray($deep = false)
     {
-        if (method_exists($this, 'getArrayableData')) {
-            $data = $this->getArrayableData($deep);
-        } else {
-            $data = (property_exists($this, 'data')) ? $this->data : null;
-        }
-
-        if ($this->collectionIsIterable($data) === false) {
-            return [];
-        }
+        $data = $this->getArrayableData();
 
         if ($deep) {
             foreach ($data as $key => $value) {
