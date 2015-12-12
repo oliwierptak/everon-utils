@@ -1,6 +1,6 @@
 {
   "name": "everon/utils",
-  "description": "Utils",
+  "description": "Everon Utils Component",
   "type": "library",
   "license": "MIT",
   "version": "0.5",
