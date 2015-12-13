@@ -8,4 +8,4 @@ Various helpful code snippets and simple classes
 See [tests](https://github.com/oliwierptak/everon-utils/blob/development/tests/unit/) for more examples.
 
 ### travis
-https://travis-ci.org/oliwierptak/everon-utils.svg?branch=development
+![alt tag](https://travis-ci.org/oliwierptak/everon-utils.svg?branch=development)
