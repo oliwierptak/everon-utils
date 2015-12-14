@@ -2,7 +2,7 @@
 Various helpful code snippets and simple classes
 
 ## Works with
-* Php 5.5+
+* Php 5.6+
 * Php 7
 * Hhvm
 
