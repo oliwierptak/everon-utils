@@ -28,8 +28,8 @@ class CollectionTest extends MockeryTest
         'bar' => 'barValue',
         'fuzz' => null,
         'nested_item' => [
-            'foo' => null
-        ]
+            'foo' => null,
+        ],
     ];
 
     protected function setUp()
@@ -44,8 +44,8 @@ class CollectionTest extends MockeryTest
             'bar' => 'barValue',
             'fuzz' => null,
             'nested_item' => [
-                'foo' => null
-            ]
+                'foo' => null,
+            ],
         ];
 
         $this->assertEquals($expected, $this->CollectionStub->toArray(true));
@@ -78,15 +78,15 @@ class CollectionTest extends MockeryTest
         $this->CollectionStub->mergeData([
             'fuzz' => 'NOT NULL',
             'nested_item' => [
-                'foo' => 'bar'
-            ]
+                'foo' => 'bar',
+            ],
         ]);
 
         $data = $this->CollectionStub->getData();
 
         $this->assertEquals($data['fuzz'], 'NOT NULL');
         $this->assertEquals($data['nested_item'], [
-            'foo' => 'bar'
+            'foo' => 'bar',
         ]);
     }
 
