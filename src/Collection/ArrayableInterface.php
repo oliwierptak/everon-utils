@@ -13,10 +13,10 @@ interface ArrayableInterface
 {
 
     /**
-     * @param bool $deep
+     * @param bool $deep false
      *
      * @return array
      */
-    public function toArray($deep = false);
+    public function toArray(bool $deep = false): array;
 
 }
