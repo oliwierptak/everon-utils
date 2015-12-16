@@ -12,7 +12,7 @@ namespace Everon\Component\Utils\Text;
 trait ToString
 {
 
-    public function __toString()
+    public function __toString(): string
     {
         try {
             if (method_exists($this, 'getToString')) {

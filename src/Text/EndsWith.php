@@ -13,19 +13,19 @@ trait EndsWith
 {
 
     /**
-     * @param $string
-     * @param $ends_with
+     * @param string $string
+     * @param string $endsWith
      *
      * @return bool
      */
-    protected function textEndsWith($string, $ends_with)
+    protected function textEndsWith(string $string, string $endsWith): bool
     {
-        $ends_with = trim($ends_with);
-        if ($ends_with === '') {
+        $endsWith = trim($endsWith);
+        if ($endsWith === '') {
             return false;
         }
 
-        return substr_compare($string, $ends_with, -strlen($ends_with), strlen($ends_with)) === 0;
+        return (bool) (substr_compare($string, $endsWith, -strlen($endsWith), strlen($endsWith)) === 0);
     }
 
 }

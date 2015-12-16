@@ -13,11 +13,11 @@ trait CamelToUnderscore
 {
 
     /**
-     * @param $string
+     * @param string $string
      *
      * @return string
      */
-    protected function textCamelToUnderscore($string)
+    protected function textCamelToUnderscore(string $string): string
     {
         $camelized_string_tokens = preg_split('/(?<=[^A-Z])(?=[A-Z])/', $string);
         if (count($camelized_string_tokens) > 0) {
@@ -28,11 +28,11 @@ trait CamelToUnderscore
     }
 
     /**
-     * @param $string
+     * @param string $string
      *
      * @return string
      */
-    protected function textCamelToUnderscoreStripFirstToken($string)
+    protected function textCamelToUnderscoreStripFirstToken(string $string): string
     {
         $camelized_string_tokens = preg_split('/(?<=\\w)(?=[A-Z])/', $string);
         array_shift($camelized_string_tokens);

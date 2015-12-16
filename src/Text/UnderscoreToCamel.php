@@ -13,11 +13,11 @@ trait UnderscoreToCamel
 {
 
     /**
-     * @param $string
+     * @param string $string
      *
      * @return string
      */
-    protected function textUnderscoreToCamel($string)
+    protected function textUnderscoreToCamel(string $string): string
     {
         $camelized_string = '';
         $string_tokens = explode('_', strtolower($string));

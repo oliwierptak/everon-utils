@@ -89,7 +89,7 @@ class Popo implements PopoInterface
      * @throws InvalidMethodCallException
      * @throws InvalidPropertyRequestedException
      *
-     * @return null|mixed
+     * @return null|mixed|self
      */
     public function __call($name, $arguments)
     {
@@ -129,6 +129,7 @@ class Popo implements PopoInterface
             return $this->data[$property];
         } elseif ($setter) {
             $this->data[$property] = $arguments[0];
+            return $this;
         }
 
         return null;
@@ -137,7 +138,7 @@ class Popo implements PopoInterface
     /**
      * @return array
      */
-    public function getData()
+    public function getData(): array
     {
         return $this->data;
     }

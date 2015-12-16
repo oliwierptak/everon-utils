@@ -13,14 +13,14 @@ trait StartsWith
 {
 
     /**
-     * @param $string
-     * @param $starts_with
+     * @param string $string
+     * @param string $startsWith
      *
      * @return bool
      */
-    protected function textStartsWith($string, $starts_with)
+    protected function textStartsWith(string $string, string $startsWith): bool
     {
-        return mb_strpos($string, $starts_with) === 0;
+        return (bool) (mb_strpos($string, $startsWith) === 0);
     }
 
 }

@@ -17,7 +17,7 @@ trait IsIterable
      *
      * @return bool
      */
-    protected function collectionIsIterable($input)
+    protected function collectionIsIterable($input): bool
     {
         if (isset($input) && is_array($input)) {
             return true;

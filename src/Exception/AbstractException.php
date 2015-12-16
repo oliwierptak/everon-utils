@@ -28,6 +28,7 @@ abstract class AbstractException extends \Exception
     {
         if ($parameters instanceof \Exception) {
             $message = $parameters->getMessage();
+            $parameters = null;
         } elseif ($message === null) {
             $message = $this->message;
         }
@@ -38,12 +39,12 @@ abstract class AbstractException extends \Exception
     }
 
     /**
-     * @param $message
-     * @param $parameters
+     * @param string $message
+     * @param mixed $parameters
      *
      * @return string
      */
-    protected function formatExceptionParams($message, $parameters)
+    protected function formatExceptionParams(string $message, $parameters): string
     {
         if (trim($message) === '' || $parameters === null) {
             return $message;
@@ -61,7 +62,7 @@ abstract class AbstractException extends \Exception
      *
      * @return string
      */
-    public static function getErrorMessageFromException(\Exception $Exception)
+    public static function getErrorMessageFromException(\Exception $Exception): string
     {
         $message = '';
         $exception_message = $Exception->getMessage();
@@ -80,7 +81,7 @@ abstract class AbstractException extends \Exception
     /**
      * @return string
      */
-    protected function getToString()
+    protected function getToString(): string
     {
         return static::getErrorMessageFromException($this);
     }

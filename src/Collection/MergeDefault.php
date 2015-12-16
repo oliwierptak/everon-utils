@@ -18,7 +18,7 @@ trait MergeDefault
      *
      * @return array
      */
-    protected function collectionMergeDefault(array $default, array $data)
+    protected function collectionMergeDefault(array $default, array $data): array
     {
         foreach ($default as $name => $value) {
             if (is_array($value)) {
