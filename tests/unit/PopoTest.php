@@ -80,4 +80,5 @@ class PopoTest extends MockeryTest
         $this->Popo->someUndefinedMethod();
     }
 
+
 }
