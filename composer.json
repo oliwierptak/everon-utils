@@ -3,7 +3,7 @@
   "description": "Everon Utils Component",
   "type": "library",
   "license": "MIT",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "authors": [{
     "name": "Oliwier Ptak",
     "email": "everonphp@gmail.com"
