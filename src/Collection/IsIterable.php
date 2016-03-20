@@ -13,7 +13,7 @@ trait IsIterable
 {
 
     /**
-     * @param $input
+     * @param mixed $input
      *
      * @return bool
      */

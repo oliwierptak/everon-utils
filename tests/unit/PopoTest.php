@@ -47,6 +47,37 @@ class PopoTest extends MockeryTest
         $this->assertEquals(100, $this->Popo->getFoo());
     }
 
+    public function test_calling_property_twice_should_warm_cache()
+    {
+        $fooValue = $this->Popo->getFoo();
+        $fooValueAgain = $this->Popo->getFoo();
+
+        $property = $this->getProtectedProperty(get_class($this->Popo), 'property_name_cache');
+        $cache = $property->getValue($this->Popo);
+
+        $this->assertEquals($fooValue, $fooValueAgain);
+        $this->assertNotEmpty($cache);
+        $this->assertEquals($cache, [
+            'getFoo' => 'foo'
+        ]);
+    }
+
+    public function test_set_data_should_reset_property_cache()
+    {
+        $fooValue = $this->Popo->getFoo();
+        $fooValueAgain = $this->Popo->getFoo();
+
+        $this->assertEquals($fooValue, $fooValueAgain);
+
+        $this->Popo->setData(['foo' => 1]);
+
+        $property = $this->getProtectedProperty(get_class($this->Popo), 'property_name_cache');
+        $cache = $property->getValue($this->Popo);
+
+        $this->assertEquals($fooValue, $fooValueAgain);
+        $this->assertEmpty($cache);
+    }
+
     /**
      * @expectedException \Everon\Component\Utils\Popo\Exception\InvalidPropertyRequestedException
      * @expectedExceptionMessage Invalid property requested: "undefined" with "getUndefined()" in "Everon\Component\Utils\Tests\Unit\Doubles\PopoStub"

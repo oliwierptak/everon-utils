@@ -38,8 +38,8 @@ abstract class AbstractException extends \Exception
     }
 
     /**
-     * @param $message
-     * @param $parameters
+     * @param string $message
+     * @param mixed $parameters
      *
      * @return string
      */

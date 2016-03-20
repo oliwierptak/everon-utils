@@ -27,7 +27,6 @@ class Popo implements PopoInterface
 
     const CALL_TYPE_GETTER = 1;
     const CALL_TYPE_SETTER = 2;
-    const CALL_TYPE_METHOD = 3;
 
     /**
      * @var int
@@ -58,33 +57,8 @@ class Popo implements PopoInterface
     }
 
     /**
-     * @param $property
-     *
-     * @throws InvalidMethodCallException
-     *
-     * @return void
-     */
-    public function __get($property)
-    {
-        throw new InvalidMethodCallException($property, 'Public getters are disabled. Requested: "%s"');
-    }
-
-    /**
-     * @param $property
-     * @param $value
-     *
-     * @throws InvalidMethodCallException
-     *
-     * @return void
-     */
-    public function __set($property, $value)
-    {
-        throw new InvalidMethodCallException($property, 'Public setters are disabled. Requested: "%s"');
-    }
-
-    /**
-     * @param $name
-     * @param $arguments
+     * @param string $name
+     * @param mixed $arguments
      *
      * @throws InvalidMethodCallException
      * @throws InvalidPropertyRequestedException
@@ -115,6 +89,7 @@ class Popo implements PopoInterface
             $property = $this->property_name_cache[$name];
         } else {
             $property = $this->textCamelToUnderscoreStripFirstToken($name);
+            $this->property_name_cache[$name] = $property;
         }
 
         $this->call_property = $property;
