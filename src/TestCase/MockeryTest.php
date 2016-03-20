@@ -19,4 +19,32 @@ class MockeryTest extends \PHPUnit_Framework_TestCase
         Mockery::close();
     }
 
+    /**
+     * @param $class_name
+     * @param $name
+     * @return \ReflectionProperty
+     */
+    public function getProtectedProperty($class_name, $name)
+    {
+        $Reflection = new \ReflectionClass($class_name);
+        $Property = $Reflection->getProperty($name);
+        $Property->setAccessible(true);
+
+        return $Property;
+    }
+
+    /**
+     * @param $class_name
+     * @param $name
+     * @return \ReflectionMethod
+     */
+    public function getProtectedMethod($class_name, $name)
+    {
+        $Reflection = new \ReflectionClass($class_name);
+        $Method = $Reflection->getMethod($name);
+        $Method->setAccessible(true);
+
+        return $Method;
+    }
+
 }
