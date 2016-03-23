@@ -1,4 +1,4 @@
-# Everon Utils v1.0
+# Everon Utils Library
 Various helpful code snippets and simple classes
 
 ## Works with
