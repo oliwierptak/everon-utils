@@ -16,61 +16,40 @@ use Everon\Component\Utils\Tests\Unit\Doubles\ExceptionSingleParamStub;
 
 class ExceptionTest extends MockeryTest
 {
-
-    /**
-     * @expectedException \Everon\Component\Utils\Tests\Unit\Doubles\ExceptionSingleParamStub
-     * @expectedExceptionMessage Lorem ipsum: "%s"
-     *
-     * @throws ExceptionSingleParamStub
-     *
-     * @return void
-     */
-    public function test_exception_message()
+    public function test_exception_message(): void
     {
+        $this->expectException(\Everon\Component\Utils\Tests\Unit\Doubles\ExceptionSingleParamStub::class);
+        $this->expectExceptionMessage('Lorem ipsum: "%s"');
+
         throw new ExceptionSingleParamStub();
     }
 
-    /**
-     * @expectedException \Everon\Component\Utils\Tests\Unit\Doubles\ExceptionSingleParamStub
-     * @expectedExceptionMessage Lorem ipsum: "foobar"
-     *
-     * @throws ExceptionSingleParamStub
-     *
-     * @return void
-     */
-    public function test_exception_message_with_param()
+    public function test_exception_message_with_param(): void
     {
+        $this->expectException(\Everon\Component\Utils\Tests\Unit\Doubles\ExceptionSingleParamStub::class);
+        $this->expectExceptionMessage('Lorem ipsum: "foobar"');
+
         throw new ExceptionSingleParamStub('foobar');
     }
 
-    /**
-     * @expectedException \Everon\Component\Utils\Tests\Unit\Doubles\ExceptionMultipleParamsStub
-     * @expectedExceptionMessage Multiple Lorem ipsum: "foobar" in "fuzz" for "123"
-     *
-     * @throws ExceptionMultipleParamsStub
-     *
-     * @return void
-     */
-    public function test_exception_message_with_multiple_params()
+    public function test_exception_message_with_multiple_params(): void
     {
+        $this->expectException(\Everon\Component\Utils\Tests\Unit\Doubles\ExceptionMultipleParamsStub::class);
+        $this->expectExceptionMessage('Multiple Lorem ipsum: "foobar" in "fuzz" for "123"');
+
         throw new ExceptionMultipleParamsStub(['foobar', 'fuzz', 123]);
     }
 
-    /**
-     * @expectedException \Everon\Component\Utils\Tests\Unit\Doubles\ExceptionMultipleParamsStub
-     * @expectedExceptionMessage Lorem ipsum: "foobar"
-     *
-     * @throws ExceptionMultipleParamsStub
-     *
-     * @return void
-     */
-    public function test_exception_message_with_exception_should_overwrite_message()
+    public function test_exception_message_with_exception_should_overwrite_message(): void
     {
+        $this->expectException(\Everon\Component\Utils\Tests\Unit\Doubles\ExceptionMultipleParamsStub::class);
+        $this->expectExceptionMessage('Lorem ipsum: "foobar"');
+
         $AnotherException = new ExceptionSingleParamStub('foobar');
         throw new ExceptionMultipleParamsStub($AnotherException);
     }
 
-    public function test_getErrorMessageFromException()
+    public function test_getErrorMessageFromException(): void
     {
         $AnotherException = new ExceptionSingleParamStub('foobar');
         $message = AbstractException::getErrorMessageFromException($AnotherException);
@@ -78,7 +57,7 @@ class ExceptionTest extends MockeryTest
         $this->assertEquals('{Everon\Component\Utils\Tests\Unit\Doubles\ExceptionSingleParamStub} Lorem ipsum: "foobar"', $message);
     }
 
-    public function test_get_to_string()
+    public function test_get_to_string(): void
     {
         $AnotherException = new ExceptionSingleParamStub('foobar');
         $message = (string) $AnotherException;
