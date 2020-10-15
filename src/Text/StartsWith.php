@@ -12,13 +12,7 @@ namespace Everon\Component\Utils\Text;
 trait StartsWith
 {
 
-    /**
-     * @param $string
-     * @param $starts_with
-     *
-     * @return bool
-     */
-    protected function textStartsWith($string, $starts_with)
+    protected function textStartsWith(string $string, string $starts_with): bool
     {
         return mb_strpos($string, $starts_with) === 0;
     }

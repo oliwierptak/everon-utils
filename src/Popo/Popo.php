@@ -25,8 +25,8 @@ class Popo implements PopoInterface
     use CamelToUnderscore;
     use ToArray;
 
-    const CALL_TYPE_GETTER = 1;
-    const CALL_TYPE_SETTER = 2;
+    protected const CALL_TYPE_GETTER = 1;
+    protected const CALL_TYPE_SETTER = 2;
 
     /**
      * @var int
@@ -48,9 +48,6 @@ class Popo implements PopoInterface
      */
     protected $data = [];
 
-    /**
-     * @param array $data
-     */
     public function __construct(array $data)
     {
         $this->data = $data;
@@ -109,18 +106,12 @@ class Popo implements PopoInterface
         return null;
     }
 
-    /**
-     * @return array
-     */
-    public function getData()
+    public function getData(): array
     {
         return $this->data;
     }
 
-    /**
-     * @param array $data
-     */
-    public function setData(array $data)
+    public function setData(array $data): void
     {
         $this->data = $data;
         $this->property_name_cache = [];

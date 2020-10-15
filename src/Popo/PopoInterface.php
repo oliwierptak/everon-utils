@@ -13,15 +13,7 @@ use Everon\Component\Utils\Collection\ArrayableInterface;
 
 interface PopoInterface extends ArrayableInterface
 {
+    public function getData(): array;
 
-    /**
-     * @return array
-     */
-    public function getData();
-
-    /**
-     * @param array $data
-     */
-    public function setData(array $data);
-
+    public function setData(array $data): void;
 }

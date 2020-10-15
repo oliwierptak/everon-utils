@@ -13,12 +13,12 @@ trait LastTokenToName
 {
 
     /**
-     * @param $name
+     * @param string $name
      * @param string $split
      *
      * @return mixed
      */
-    protected function textLastTokenToName($name, $split = '\\')
+    protected function textLastTokenToName(string $name, string $split = '\\')
     {
         $tokens = explode($split, $name);
 

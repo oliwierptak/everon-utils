@@ -11,13 +11,7 @@ namespace Everon\Component\Utils\Collection;
 
 trait ToArray
 {
-
-    /**
-     * @param bool $deep
-     *
-     * @return array
-     */
-    public function toArray($deep = false)
+    public function toArray(bool $deep = false): array
     {
         $data = $this->getArrayableData();
 

@@ -11,14 +11,7 @@ namespace Everon\Component\Utils\Collection;
 
 trait MergeDefault
 {
-
-    /**
-     * @param array $default
-     * @param array $data
-     *
-     * @return array
-     */
-    protected function collectionMergeDefault(array $default, array $data)
+    protected function collectionMergeDefault(array $default, array $data): array
     {
         foreach ($default as $name => $value) {
             if (is_array($value)) {

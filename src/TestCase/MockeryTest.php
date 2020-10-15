@@ -7,24 +7,28 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
+
 namespace Everon\Component\Utils\TestCase;
 
 use Mockery;
+use ReflectionMethod;
+use ReflectionProperty;
 
 class MockeryTest extends Mockery\Adapter\Phpunit\MockeryTestCase
 {
-
     public function tearDown(): void
     {
         Mockery::close();
     }
 
     /**
-     * @param $class_name
-     * @param $name
+     * @param string $class_name
+     * @param string $name
+     *
      * @return \ReflectionProperty
+     * @throws \ReflectionException
      */
-    public function getProtectedProperty($class_name, $name)
+    public function getProtectedProperty(string $class_name, string $name): ReflectionProperty
     {
         $Reflection = new \ReflectionClass($class_name);
         $Property = $Reflection->getProperty($name);
@@ -34,11 +38,13 @@ class MockeryTest extends Mockery\Adapter\Phpunit\MockeryTestCase
     }
 
     /**
-     * @param $class_name
-     * @param $name
+     * @param string $class_name
+     * @param string $name
+     *
      * @return \ReflectionMethod
+     * @throws \ReflectionException
      */
-    public function getProtectedMethod($class_name, $name)
+    public function getProtectedMethod(string $class_name, string $name): ReflectionMethod
     {
         $Reflection = new \ReflectionClass($class_name);
         $Method = $Reflection->getMethod($name);
@@ -46,5 +52,4 @@ class MockeryTest extends Mockery\Adapter\Phpunit\MockeryTestCase
 
         return $Method;
     }
-
 }

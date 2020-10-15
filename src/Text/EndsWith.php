@@ -11,14 +11,7 @@ namespace Everon\Component\Utils\Text;
 
 trait EndsWith
 {
-
-    /**
-     * @param $string
-     * @param $ends_with
-     *
-     * @return bool
-     */
-    protected function textEndsWith($string, $ends_with)
+    protected function textEndsWith(string $string, string $ends_with): bool
     {
         $ends_with = trim($ends_with);
         if ($ends_with === '') {

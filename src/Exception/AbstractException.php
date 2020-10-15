@@ -10,13 +10,12 @@
 namespace Everon\Component\Utils\Exception;
 
 use Everon\Component\Utils\Text\ToString;
+use Exception;
 
-abstract class AbstractException extends \Exception
+abstract class AbstractException extends Exception
 {
 
     use ToString;
-
-    protected $toString = null;
 
     /**
      * @param null $parameters
@@ -26,7 +25,7 @@ abstract class AbstractException extends \Exception
      */
     public function __construct($parameters = null, $message = null, $Previous = null, $code = 0)
     {
-        if ($parameters instanceof \Exception) {
+        if ($parameters instanceof Exception) {
             $message = $parameters->getMessage();
         } elseif ($message === null) {
             $message = $this->message;
@@ -43,7 +42,7 @@ abstract class AbstractException extends \Exception
      *
      * @return string
      */
-    protected function formatExceptionParams($message, $parameters)
+    protected function formatExceptionParams(string $message, $parameters): string
     {
         if (trim($message) === '' || $parameters === null) {
             return $message;
@@ -56,12 +55,7 @@ abstract class AbstractException extends \Exception
         return @vsprintf($message, $parameters);
     }
 
-    /**
-     * @param \Exception $Exception
-     *
-     * @return string
-     */
-    public static function getErrorMessageFromException(\Exception $Exception)
+    public static function getErrorMessageFromException(Exception $Exception): string
     {
         $message = '';
         $exception_message = $Exception->getMessage();
@@ -77,10 +71,7 @@ abstract class AbstractException extends \Exception
         return $message;
     }
 
-    /**
-     * @return string
-     */
-    protected function getToString()
+    protected function getToString(): string
     {
         return static::getErrorMessageFromException($this);
     }

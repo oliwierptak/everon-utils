@@ -12,9 +12,6 @@ namespace Everon\Component\Utils\Text;
 interface StringableInterface
 {
 
-    /**
-     * @return string
-     */
-    public function __toString();
+    public function __toString(): string;
 
 }
