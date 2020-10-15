@@ -20,18 +20,18 @@ class TextTest extends MockeryTest
      */
     protected $TextStub;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->TextStub = new TextStub();
     }
 
-    public function test_camel_to_underscore()
+    public function test_camel_to_underscore(): void
     {
         $this->assertEquals('foo_bar', $this->TextStub->camelToUnderscore('fooBar'));
         $this->assertEquals('foo_bar', $this->TextStub->camelToUnderscore('FooBar'));
     }
 
-    public function test_underscore_to_camel()
+    public function test_underscore_to_camel(): void
     {
         $this->assertEquals('FooBar', $this->TextStub->underscoreToCamel('foo_bar'));
         $this->assertEquals('FooBar', $this->TextStub->underscoreToCamel('foo_bar'));

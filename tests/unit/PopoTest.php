@@ -29,25 +29,25 @@ class PopoTest extends MockeryTest
      */
     protected $Popo;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->Popo = new PopoStub($this->arrayFixture);
     }
 
-    public function test_get_value()
+    public function test_get_value(): void
     {
         $this->assertEquals(1, $this->Popo->getFoo());
         $this->assertEquals('barValue', $this->Popo->getBar());
         $this->assertEquals(null, $this->Popo->getFuzzBarFoo());
     }
 
-    public function test_set_value()
+    public function test_set_value(): void
     {
         $this->Popo->setFoo(100);
         $this->assertEquals(100, $this->Popo->getFoo());
     }
 
-    public function test_calling_property_twice_should_warm_cache()
+    public function test_calling_property_twice_should_warm_cache(): void
     {
         $fooValue = $this->Popo->getFoo();
         $fooValueAgain = $this->Popo->getFoo();
@@ -62,7 +62,7 @@ class PopoTest extends MockeryTest
         ]);
     }
 
-    public function test_set_data_should_reset_property_cache()
+    public function test_set_data_should_reset_property_cache(): void
     {
         $fooValue = $this->Popo->getFoo();
         $fooValueAgain = $this->Popo->getFoo();
@@ -78,36 +78,27 @@ class PopoTest extends MockeryTest
         $this->assertEmpty($cache);
     }
 
-    /**
-     * @expectedException \Everon\Component\Utils\Popo\Exception\InvalidPropertyRequestedException
-     * @expectedExceptionMessage Invalid property requested: "undefined" with "getUndefined()" in "Everon\Component\Utils\Tests\Unit\Doubles\PopoStub"
-     *
-     * @return void
-     */
-    public function test_get_undefined_value_should_throw_exception()
+    public function test_get_undefined_value_should_throw_exception(): void
     {
+        $this->expectException(\Everon\Component\Utils\Popo\Exception\InvalidPropertyRequestedException::class);
+        $this->expectExceptionMessage('Invalid property requested: "undefined" with "getUndefined()" in "Everon\Component\Utils\Tests\Unit\Doubles\PopoStub"');
+
         $this->assertEquals('foobar', $this->Popo->getUndefined());
     }
 
-    /**
-     * @expectedException \Everon\Component\Utils\Popo\Exception\InvalidPropertyRequestedException
-     * @expectedExceptionMessage Invalid property requested: "undefined" with "setUndefined()" in "Everon\Component\Utils\Tests\Unit\Doubles\PopoStub"
-     *
-     * @return void
-     */
-    public function test_set_undefined_value_should_throw_exception()
+    public function test_set_undefined_value_should_throw_exception(): void
     {
+        $this->expectException(\Everon\Component\Utils\Popo\Exception\InvalidPropertyRequestedException::class);
+        $this->expectExceptionMessage('Invalid property requested: "undefined" with "setUndefined()" in "Everon\Component\Utils\Tests\Unit\Doubles\PopoStub"');
+
         $this->Popo->setUndefined(100);
     }
 
-    /**
-     * @expectedException \Everon\Component\Utils\Popo\Exception\InvalidMethodCallException
-     * @expectedExceptionMessage Invalid method call: "someUndefinedMethod()" in "Everon\Component\Utils\Tests\Unit\Doubles\PopoStub"
-     *
-     * @return void
-     */
-    public function test_call_to_non_setter_or_getter_method_should_throw_exception()
+    public function test_call_to_non_setter_or_getter_method_should_throw_exception(): void
     {
+        $this->expectException(\Everon\Component\Utils\Popo\Exception\InvalidMethodCallException::class);
+        $this->expectExceptionMessage('Invalid method call: "someUndefinedMethod()" in "Everon\Component\Utils\Tests\Unit\Doubles\PopoStub"');
+
         $this->Popo->someUndefinedMethod();
     }
 

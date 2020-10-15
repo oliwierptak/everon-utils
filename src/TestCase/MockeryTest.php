@@ -11,10 +11,10 @@ namespace Everon\Component\Utils\TestCase;
 
 use Mockery;
 
-class MockeryTest extends \PHPUnit_Framework_TestCase
+class MockeryTest extends Mockery\Adapter\Phpunit\MockeryTestCase
 {
 
-    public function tearDown()
+    public function tearDown(): void
     {
         Mockery::close();
     }

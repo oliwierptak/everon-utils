@@ -32,12 +32,12 @@ class CollectionTest extends MockeryTest
         ],
     ];
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->CollectionStub = new CollectionStub($this->arrayFixture);
     }
 
-    public function test_to_array_using_data_property()
+    public function test_to_array_using_data_property(): void
     {
         $expected = [
             'foo' => 1,
@@ -51,7 +51,7 @@ class CollectionTest extends MockeryTest
         $this->assertEquals($expected, $this->CollectionStub->toArray(true));
     }
 
-    public function test_to_array_using_getArrayableData_method()
+    public function test_to_array_using_getArrayableData_method(): void
     {
         $data = [
             'arrayable_data' => 'foobar',
@@ -62,7 +62,7 @@ class CollectionTest extends MockeryTest
         $this->assertEquals($data, $this->CollectionStub->toArray(true));
     }
 
-    public function test_is_iterable()
+    public function test_is_iterable(): void
     {
         $this->assertTrue($this->CollectionStub->canLoop());
 
@@ -73,7 +73,7 @@ class CollectionTest extends MockeryTest
         $this->assertFalse($this->CollectionStub->canLoop());
     }
 
-    public function test_merge_default()
+    public function test_merge_default(): void
     {
         $this->CollectionStub->mergeData([
             'fuzz' => 'NOT NULL',
